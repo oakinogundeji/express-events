@@ -1,0 +1,30 @@
+<!--from /views/pages/dashboard -->
+<h1>Welcome to the dashboard</h1>
+<% if(profile.photo) { %>
+  <figure><img src="<%= user.photo%>" alt="<%= person%> photo"></figure>
+<% } %>
+<p>Your data is:</p>
+<% if(profile.local.username) { %>
+  <p>Local Email: <%= user.local.email%></p>
+  <p>Local Username: <%= user.local.username%></p>
+<% } %>
+
+<% if(profile.fb.displayName) { %>
+  <p>Facebook Name: <%- user.fb.displayName%></p>
+  <p>Facebook Email: <%= user.fb.email%></p>
+<% } %>
+
+<% if(profile.twitter.displayName) { %>
+  <p>Twitter Handle: <%= user.twitter.handle%></p>
+  <p>Twitter location: <%= user.twitter.location%></p>
+  <p>Twitter Description: <%= user.twitter.description%></p>
+<% } %>
+
+
+<%- contentFor('dashboard header') %>
+<!--The following corrects FB callback frag-->
+<script type="text/javascript">
+  if (window.location.hash && window.location.hash == '#_=_') {
+      window.location.hash = '';
+    }
+</script>
